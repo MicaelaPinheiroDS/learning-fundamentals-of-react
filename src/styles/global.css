@@ -1,5 +1,8 @@
 :root{
     font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased; 
+
 }
 *{
     margin: 0;
