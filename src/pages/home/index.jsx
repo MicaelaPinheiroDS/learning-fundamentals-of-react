@@ -26,7 +26,7 @@ export function Home() {
       <h1>Nome..: {studentName}</h1>
       <input type='text' 
       placeholder='Digite o nome...'
-      onChange={e => setStudentName(e.target.value)}
+      onChange={event => setStudentName(event.target.value)}
       ></input>
       <button type='button' onClick={handleAddStudent}>Adicionar</button>
       
