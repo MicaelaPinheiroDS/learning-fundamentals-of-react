@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card } from '../../components/card'
 import './style.css'
 
 export function Home() {
   const [studentName, setStudentName] = useState()
   const [students, setStudents] = useState([])
+  const [user, setUser] = useState({name: '' , avatar: '' })
   function handleAddStudent(){
     const newStudent = {
       name: studentName,
@@ -18,7 +19,19 @@ export function Home() {
       )
     }
     setStudents(prevState => [...prevState, newStudent])
+    
   }
+  useEffect(() => {
+    const urlGitHub = 'https://api.github.com/users/MicaelaPinheiroDS'
+    fetch(urlGitHub).then(response => response.json().then (data =>{
+      setUser(
+        {
+          name: data.name,
+          avatar: data.avatar_url,
+        }
+      )
+    }))
+  }, [])
  
 
   return (
@@ -27,8 +40,8 @@ export function Home() {
         <h1>Lista de Presença</h1>
         
         <div>
-          <strong>Micaela Pinherio</strong>
-          <img alt="img user" src="https://github.com/MicaelaPinheiroDS.png" />
+          <strong>{user.name}</strong>
+          <img alt="img user" src={user.avatar} />
         </div>
         
       </header>
