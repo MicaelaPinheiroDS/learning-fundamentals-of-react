@@ -23,7 +23,15 @@ export function Home() {
 
   return (
     <div className='container'>
-      <h1>Nome..: {studentName}</h1>
+      <header>
+        <h1>Lista de Presença</h1>
+        
+        <div>
+          <strong>Micaela Pinherio</strong>
+          <img alt="img user" src="https://github.com/MicaelaPinheiroDS.png" />
+        </div>
+        
+      </header>
       <input type='text' 
       placeholder='Digite o nome...'
       onChange={event => setStudentName(event.target.value)}
